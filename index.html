@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMILY228 · ГОСУДАРСТВЕННЫЕ КОДЕКСЫ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --bg-light: linear-gradient(145deg, #f0f9ff 0%, #e6f0fa 100%);
+            --bg-dark: linear-gradient(145deg, #0b1120 0%, #19233c 100%);
+            --bg-card-light: rgba(255, 255, 255, 0.7);
+            --bg-card-dark: rgba(15, 23, 42, 0.7);
+            --text-head-light: #0f172a;
+            --text-head-dark: #f1f5f9;
+            --text-body-light: #334155;
+            --text-body-dark: #94a3b8;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-dark: rgba(255, 255, 255, 0.08);
+            --footer-start: #4c1d95;
+            --footer-end: #7c3aed;
+            --transition: 0.3s ease;
+        }
+
+        body.light-mode {
+            background: var(--bg-light);
+            color: var(--text-body-light);
+            --bg-card: var(--bg-card-light);
+            --text-head: var(--text-head-light);
+            --border: var(--border-light);
+        }
+
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-body-dark);
+            --bg-card: var(--bg-card-dark);
+            --text-head: var(--text-head-dark);
+            --border: var(--border-dark);
+        }
+
+        body {
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        #main-nav {
+            position: sticky;
+            top: 20px;
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 80px;
+            padding: 0.75rem 2rem;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-body);
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-head);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-tools {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tool-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-head);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .gov-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .gov-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+        }
+
+        .gov-seal {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .gov-seal i {
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: var(--text-body);
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-head);
+            margin: 3rem 0 1.5rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-head);
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* Табель о рангах - иерархическое дерево */
+        .hierarchy-tree {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .tree-root {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .root-node {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 0.8rem 2.5rem;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .tree-level-1 {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .branch-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 1rem 2rem;
+            min-width: 200px;
+            text-align: center;
+            transition: 0.2s;
+            backdrop-filter: blur(5px);
+        }
+
+        .branch-node:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .branch-node .rank-points {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .branch-node .rank-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-head);
+        }
+
+        .branch-node .rank-desc {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+
+        .tree-level-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .leaf-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            flex: 1 1 150px;
+            transition: 0.2s;
+        }
+
+        .leaf-node:hover {
+            border-color: var(--primary);
+        }
+
+        .leaf-node .rank-points {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .leaf-node .rank-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-head);
+        }
+
+        /* Кодексы */
+        .codex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .codex-article {
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 1.8rem;
+            transition: 0.2s;
+        }
+
+        .codex-article:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .article-number {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-head);
+            margin-bottom: 0.8rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .article-text {
+            margin-bottom: 1rem;
+            color: var(--text-body);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .punishment {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 6px solid var(--primary);
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 16px 16px 0;
+            font-weight: 500;
+            color: var(--text-head);
+            margin-top: 1rem;
+        }
+
+        .punishment strong {
+            color: var(--primary-dark);
+            font-size: 1rem;
+        }
+
+        .regulations-list {
+            list-style: none;
+        }
+
+        .regulations-list li {
+            margin: 0.8rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-body);
+        }
+
+        .regulations-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .zone-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin: 0.2rem 0.3rem;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            border-top: 2px solid var(--border);
+            padding-top: 2rem;
+            color: var(--text-body);
+            font-size: 0.9rem;
+        }
+
+        .signature {
+            font-family: 'Courier New', monospace;
+            color: var(--primary);
+            margin-top: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .court-note {
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            border-radius: 30px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .court-note h3 {
+            margin-bottom: 1rem;
+        }
+
+        .repentance {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tree-level-1 {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <header id="main-nav">
+        <div class="logo">FAMILY228</div>
+        <nav class="nav-links">
+            <a href="#hierarchy">Иерархия</a>
+            <a href="#uk">УК</a>
+            <a href="#koap">КоАП</a>
+            <a href="#military">Военный устав</a>
+            <a href="#arch">Регламент</a>
+            <a href="#court">Суд</a>
+        </nav>
+        <div class="nav-tools">
+            <button id="theme-switcher" class="tool-btn"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="gov-header">
+            <div class="gov-title">FAMILY228</div>
+            <div class="gov-seal">
+                <i class="fas fa-gavel"></i>
+                <span>ГОСУДАРСТВЕННЫЙ РЕЕСТР</span>
+                <i class="fas fa-scroll"></i>
+            </div>
+        </div>
+
+        <h1>КОДЕКСЫ И ИЕРАРХИЯ</h1>
+        <div class="subhead">Официальное издание · Утверждено Архонтом · Версия 5.0</div>
+
+        <!-- Иерархическое древо -->
+        <section id="hierarchy">
+            <h2>ТАБЕЛЬ О РАНГАХ</h2>
+            <div class="hierarchy-tree">
+                <div class="tree-root">
+                    <div class="root-node">
+                        <span class="rank-points">100</span> АРХОНТ
+                    </div>
+                    <div style="color: var(--text-body); margin-top:0.5rem;">Абсолютный суверенитет · Высшая власть</div>
+                </div>
+
+                <div class="tree-level-1">
+                    <div class="branch-node">
+                        <div class="rank-points">50</div>
+                        <div class="rank-title">Заместитель Архонта</div>
+                        <div class="rank-desc">Первое лицо после Архонта, исполнение обязанностей</div>
+                    </div>
+                    <div class="branch-node">
+                        <div class="rank-points">40</div>
+                        <div class="rank-title">Член Партии</div>
+                        <div class="rank-desc">Политическое ядро, законодательная инициатива</div>
+                    </div>
+                    <div class="branch-node">
+                        <div class="rank-points">35</div>
+                        <div class="rank-title">Министр Обороны</div>
+                        <div class="rank-desc">Глава вооружённых сил, безопасность</div>
+                    </div>
+                    <div class="branch-node">
+                        <div class="rank-points">30</div>
+                        <div class="rank-title">Член Палаты</div>
+                        <div class="rank-desc">Законодательный орган, экономика</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:2rem;">
+                    <div style="text-align:center; color:var(--primary); margin-bottom:1rem;">СПЕЦИАЛИСТЫ · ИСПОЛНИТЕЛИ</div>
+                    <div class="tree-level-2">
+                        <div class="leaf-node">
+                            <div class="rank-points">20</div>
+                            <div class="rank-title">Архитектор</div>
+                            <div class="rank-desc">Генеральные планы</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">20</div>
+                            <div class="rank-title">Командир</div>
+                            <div class="rank-desc">Руководство подразделением</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">20</div>
+                            <div class="rank-title">Прораб</div>
+                            <div class="rank-desc">Организация строек</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">10</div>
+                            <div class="rank-title">Строитель</div>
+                            <div class="rank-desc">Контроль регламента</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">10</div>
+                            <div class="rank-title">Воин</div>
+                            <div class="rank-desc">Рядовой состав</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">10</div>
+                            <div class="rank-title">Шахтёр</div>
+                            <div class="rank-desc">Добыча ресурсов</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">1</div>
+                            <div class="rank-title">Новобранец</div>
+                            <div class="rank-desc">Испытательный срок</div>
+                        </div>
+                        <div class="leaf-node">
+                            <div class="rank-points">0</div>
+                            <div class="rank-title">Гражданин</div>
+                            <div class="rank-desc">Свободный житель</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Уголовный кодекс -->
+        <section id="uk">
+            <h2>УГОЛОВНЫЙ КОДЕКС (УК)</h2>
+            <div class="codex-grid">
+                <!-- 1-20 УК -->
+                <div class="codex-article">
+                    <div class="article-number">Статья 1</div>
+                    <div class="article-title">Государственная измена</div>
+                    <div class="article-text">Переход на сторону врага, разглашение секретной информации, участие в заговорах, сотрудничество с враждебными фракциями.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> перманентным баном, полной конфискацией имущества, аннулированием всех регалий.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 2</div>
+                    <div class="article-title">Саботаж критической инфраструктуры</div>
+                    <div class="article-text">Умышленное повреждение общественных ферм, заводов, систем телепортации, военных объектов, оборонительных сооружений.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> баном от 30 до 90 дней, конфискацией, обязательным восстановлением за свой счёт.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 3</div>
+                    <div class="article-title">Шпионаж</div>
+                    <div class="article-text">Сбор и передача третьим лицам государственной тайны (координаты секретных баз, схемы обороны, численность войск).</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> перманентным баном, полной конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 4</div>
+                    <div class="article-title">Диверсия</div>
+                    <div class="article-text">Организация взрывов, поджогов, затоплений с целью дестабилизации работы государства.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> перманентным баном, конфискацией, возмещением ущерба в тройном размере.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 5</div>
+                    <div class="article-title">Организация незаконных вооружённых формирований</div>
+                    <div class="article-text">Создание частных армий, не подконтрольных Министерству обороны, руководство ими.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> баном на 60 дней, конфискацией оружия, роспуском формирования.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 6</div>
+                    <div class="article-title">Публичные призывы к свержению власти</div>
+                    <div class="article-text">Агитация против существующего строя, призывы к бунту, дискредитация Архонта и органов власти.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 30 дней, понижением ранга, при рецидиве – баном.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 7</div>
+                    <div class="article-title">Терроризм</div>
+                    <div class="article-text">Захват заложников, угрозы массового уничтожения, создание ловушек на спауне и в общественных местах.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> перманентным баном, полной конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 8</div>
+                    <div class="article-title">Умышленное уничтожение имущества</div>
+                    <div class="article-text">Разрушение чужих построек, ландшафта, общественных зон, установка ловушек на чужих территориях.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой от 5 до 30 дней, полным восстановлением, конфискацией, при рецидиве – баном.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 9</div>
+                    <div class="article-title">Кража</div>
+                    <div class="article-text">Хищение чужого имущества, обворовывание общественных складов, ферм, хранилищ.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 15 дней, конфискацией украденного, штрафом в двойном размере.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 10</div>
+                    <div class="article-title">Мошенничество и эксплуатация багов</div>
+                    <div class="article-text">Использование ошибок игры для нелегального получения ресурсов, обман при сделках.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 20 дней, конфискацией, при систематическом нарушении – баном.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 11</div>
+                    <div class="article-title">Убийство вне PvP-зон</div>
+                    <div class="article-text">Лишение жизни игрока без его согласия за пределами специальных арен.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой от 10 до 25 дней, конфискацией оружия, компенсацией жертве.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 12</div>
+                    <div class="article-title">Нападение на должностное лицо</div>
+                    <div class="article-text">Причинение вреда представителю власти при исполнении обязанностей.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой на 30 дней, понижением ранга, конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 13</div>
+                    <div class="article-title">Создание смертельных ловушек</div>
+                    <div class="article-text">Установка механизмов, способных убить игрока без его ведома.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 15 дней, сносом ловушек, компенсацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 14</div>
+                    <div class="article-title">Незаконное проникновение на режимные объекты</div>
+                    <div class="article-text">Вход на военные базы, секретные стройки, склады оружия без допуска.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, конфискацией пропусков.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 15</div>
+                    <div class="article-title">Хранение и распространение запрещённых предметов</div>
+                    <div class="article-text">Наличие предметов, полученных через баги/читы, хранение оружия в жилых зонах.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией, тюрьмой до 15 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 16</div>
+                    <div class="article-title">Незаконная добыча в заповедных зонах</div>
+                    <div class="article-text">Вырубка леса, добыча руды на охраняемых территориях без разрешения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, восстановлением ландшафта, тюрьмой до 7 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 17</div>
+                    <div class="article-title">Уклонение от воинской обязанности</div>
+                    <div class="article-text">Неявка на сборы, отказ от мобилизации во время военного положения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> понижением ранга, тюрьмой до 20 дней, конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 18</div>
+                    <div class="article-title">Невыполнение приказа в военное время</div>
+                    <div class="article-text">Игнорирование прямых распоряжений командования во время угрозы.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 30 дней, разжалованием.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 19</div>
+                    <div class="article-title">Дезертирство</div>
+                    <div class="article-text">Самовольное оставление места службы, поля боя.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 40 дней, конфискацией, понижением до Гражданина.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 20</div>
+                    <div class="article-title">Подделка документов</div>
+                    <div class="article-text">Фальсификация табличек, книг, знаков принадлежности к рангу.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, конфискацией подделок.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Административный кодекс (нумерация с 21) -->
+        <section id="koap">
+            <h2>АДМИНИСТРАТИВНЫЙ КОДЕКС (КоАП)</h2>
+            <div class="codex-grid">
+                <!-- Статья 21 -->
+                <div class="codex-article">
+                    <div class="article-number">Статья 21</div>
+                    <div class="article-title">Нарушение правил поведения в чате</div>
+                    <div class="article-text">Флуд, капс, оскорбления, разжигание розни, спам, провокационные сообщения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, мутом от 1 часа до 3 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 22</div>
+                    <div class="article-title">Неподчинение законным требованиям</div>
+                    <div class="article-text">Отказ выполнять распоряжения Архонта, министров, строителей, командиров при исполнении.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> арестом до 5 дней, понижением ранга.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 23</div>
+                    <div class="article-title">Нарушение правил торговли</div>
+                    <div class="article-text">Обман при сделках, неисполнение договорённостей, мошенничество в экономической зоне.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом в двойном размере ущерба, запретом на торговлю до 10 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 24</div>
+                    <div class="article-title">Несанкционированное строительство</div>
+                    <div class="article-text">Возведение построек без согласования в зонах, где оно обязательно.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предписанием о сносе, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 25</div>
+                    <div class="article-title">Нарушение архитектурного регламента</div>
+                    <div class="article-text">Использование запрещённых материалов, нарушение высотности, стиля.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, сносом за свой счёт.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 26</div>
+                    <div class="article-title">Неявка на обязательные собрания</div>
+                    <div class="article-text">Пропуск общих сборов, заседаний, выборов без уважительной причины.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, при повторении – штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 27</div>
+                    <div class="article-title">Несоблюдение дресс-кода</div>
+                    <div class="article-text">Использование скинов, оскорбляющих других игроков или не соответствующих должности.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, запретом на вход в официальные здания до смены.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 28</div>
+                    <div class="article-title">Использование нецензурных никнеймов</div>
+                    <div class="article-text">Никнеймы, содержащие мат, оскорбления, непристойные намёки.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> требованием сменить ник, баном до выполнения.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 29</div>
+                    <div class="article-title">Реклама сторонних ресурсов</div>
+                    <div class="article-text">Публикация ссылок на другие серверы, дискорды, сайты без разрешения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом от 1 до 7 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 30</div>
+                    <div class="article-title">Спам в личных сообщениях</div>
+                    <div class="article-text">Массовая рассылка рекламы, бессмысленных сообщений, домогательства.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом на ЛС до 10 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 31</div>
+                    <div class="article-title">Ложные заявления в суд</div>
+                    <div class="article-text">Заведомо ложный донос, оговор, фальсификация доказательств.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 7 дней, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 32</div>
+                    <div class="article-title">Вмешательство в работу госорганов</div>
+                    <div class="article-text">Срыв заседаний, подкуп должностных лиц, давление на судей.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 15 дней, понижением ранга.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 33</div>
+                    <div class="article-title">Несанкционированное использование админканалов</div>
+                    <div class="article-text">Публикация в каналах для объявлений, гос. табличках без разрешения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом на эти каналы до 5 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 34</div>
+                    <div class="article-title">Нарушение правил PvP-арен</div>
+                    <div class="article-text">Использование запрещённых зелий, выход за пределы, телепортация во время боя.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> дисквалификацией на 10 дней, конфискацией призов.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 35</div>
+                    <div class="article-title">Несогласованные мероприятия</div>
+                    <div class="article-text">Организация массовых строек, конкурсов, парадов без одобрения Палаты.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, роспуском мероприятия.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 36</div>
+                    <div class="article-title">Неуважение к символам государства</div>
+                    <div class="article-text">Осквернение флага, герба, гимна, публичное глумление над ними.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, общественными работами.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 37</div>
+                    <div class="article-title">Неправильное использование ранговых префиксов</div>
+                    <div class="article-text">Присвоение чужого звания, использование неутверждённых обозначений.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 38</div>
+                    <div class="article-title">Нарушение правил именования территорий</div>
+                    <div class="article-text">Присвоение нецензурных, провокационных названий регионам.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> переименованием за счёт нарушителя, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 39</div>
+                    <div class="article-title">Игнорирование предписаний строителей</div>
+                    <div class="article-text">Невыполнение требований по исправлению архитектурных нарушений.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> принудительным сносом, штрафом, тюрьмой до 3 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 40</div>
+                    <div class="article-title">Несанкционированная торговля</div>
+                    <div class="article-text">Размещение торговых лотков вне рыночной зоны.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией товара, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 41</div>
+                    <div class="article-title">Отказ от гражданского долга</div>
+                    <div class="article-text">Игнорирование выборов, референдумов, голосований без уважительной причины.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, ограничением права голоса.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 42</div>
+                    <div class="article-title">Нарушение правил общественных ферм</div>
+                    <div class="article-text">Сбор урожая сверх лимита, порча растений, воровство с общих складов.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> запретом доступа на 7 дней, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 43</div>
+                    <div class="article-title">Порча общественного имущества (по неосторожности)</div>
+                    <div class="article-text">Случайное повреждение, если не приняты меры к исправлению.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> возмещением ущерба, исправительными работами.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 44</div>
+                    <div class="article-title">Нарушение тишины в ночное время</div>
+                    <div class="article-text">Громкие постройки, взрывы, шум вблизи жилых зон с 23:00 до 7:00.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, штрафом.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Военно-дисциплинарный устав -->
+        <section id="military">
+            <h2>ВОЕННО-ДИСЦИПЛИНАРНЫЙ УСТАВ</h2>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Раздел 1. Субординация</div>
+                <ul class="regulations-list">
+                    <li><strong>1.1.</strong> Приказы вышестоящих по рангу (Архонт, Зам. Архонта, Министр Обороны, Командир) выполняются беспрекословно.</li>
+                    <li><strong>1.2.</strong> За невыполнение приказа в мирное время – выговор, арест до 3 дней.</li>
+                    <li><strong>1.3.</strong> За невыполнение приказа в военное время – военный трибунал, тюрьма до 20 дней, понижение.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Раздел 2. Отношения между званиями</div>
+                <ul class="regulations-list">
+                    <li><strong>2.1. Неуважение к старшим по званию:</strong> оскорбления, игнорирование, пререкания – караются выговором, арестом до 5 дней, понижением.</li>
+                    <li><strong>2.2. Неуважение к младшим по званию:</strong> унижение, рукоприкладство, оскорбления – караются выговором, штрафом, понижением.</li>
+                    <li><strong>2.3.</strong> Каждый воин обязан защищать достоинство подчинённых.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Раздел 3. Ношение оружия и форма</div>
+                <ul class="regulations-list">
+                    <li><strong>3.1.</strong> Оружие разрешено только в PvP-зонах и на военных базах. В жилых зонах оружие убрано в инвентарь.</li>
+                    <li><strong>3.2.</strong> Военнослужащие обязаны носить форменный скин при несении службы.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Раздел 4. Мобилизация</div>
+                <ul class="regulations-list">
+                    <li><strong>4.1.</strong> Военное положение объявляется Архонтом или Министром Обороны.</li>
+                    <li><strong>4.2.</strong> Все воины обязаны явиться на сборный пункт в течение часа.</li>
+                    <li><strong>4.3.</strong> Уклонение от мобилизации приравнивается к госизмене (статья 1 УК).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Архитектурный регламент -->
+        <section id="arch">
+            <h2>АРХИТЕКТУРНЫЙ РЕГЛАМЕНТ</h2>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Зонирование территории</div>
+                <ul class="regulations-list">
+                    <li><span class="zone-tag">ЦЕНТР</span> Индивидуальные проекты, согласованные с Архонтом/Архитектором. Материалы: камень, кирпич, призмарин, тёмный дуб, кварц. Запрещены временные постройки.</li>
+                    <li><span class="zone-tag">ПРОМЗОНА</span> Фабрики, заводы. Допускается обсидиан, железо, камень. Жильё запрещено.</li>
+                    <li><span class="zone-tag">ЖИЛАЯ ЗОНА</span> Дома до 20 блоков. Материалы: дерево, камень, кирпич, штукатурка. Запрещены булыжник, земля.</li>
+                    <li><span class="zone-tag">СЕЛЬСКАЯ ЗОНА</span> Фермы, малые дома до 10 блоков. Дерево, солома, камень.</li>
+                    <li><span class="zone-tag">ЗАПОВЕДНАЯ ЗОНА</span> Строительство запрещено, кроме малых объектов по разрешению.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Запрещённые материалы</div>
+                <ul class="regulations-list">
+                    <li>Земля, гравий, песок – только во временных конструкциях (до 24 ч).</li>
+                    <li>Булыжник – не более 30% фасада.</li>
+                    <li>Кактусы, сахарный тростник, тыквы – запрещены как стройматериал.</li>
+                    <li>Лава, вода – запрещены в ограждениях, только декор.</li>
+                    <li>Руды на фасадах – запрещены.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Правила застройки</div>
+                <ul class="regulations-list">
+                    <li>Каждый объект – в генплан, согласование с Архитектором/Прорабом.</li>
+                    <li>Выше 50 блоков – разрешение Архонта.</li>
+                    <li>Отступы: от дорог 5 блоков, от соседей 3 блока.</li>
+                    <li>Срок стройки – 14 дней, иначе снос.</li>
+                </ul>
+            </div>
+            <div class="codex-article" style="max-width:100%; margin-bottom:1.5rem;">
+                <div class="article-title">Санкции</div>
+                <ul class="regulations-list">
+                    <li>Первое нарушение – предписание, штраф 10%.</li>
+                    <li>Второе – принудительный снос, штраф 50%.</li>
+                    <li>Систематические – тюрьма до 10 дней, понижение ранга.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Поведение в суде и раскаяние -->
+        <section id="court">
+            <h2>СУДОПРОИЗВОДСТВО И РАСКАЯНИЕ</h2>
+            <div class="court-note">
+                <h3>Правила поведения в суде</h3>
+                <ul class="regulations-list" style="text-align:left">
+                    <li>Стороны обязаны обращаться к суду "Ваша Честь" или "Господин судья".</li>
+                    <li>Запрещены оскорбления, переход на личности, нецензурная лексика.</li>
+                    <li>Доказательства предоставляются в виде скриншотов, видео, показаний свидетелей.</li>
+                    <li>Неявка в суд без уважительной причины – штраф или принудительный привод.</li>
+                </ul>
+            </div>
+            <div class="court-note">
+                <h3>Раскаяние и смягчение приговора</h3>
+                <p>Чистосердечное раскаяние, добровольное возмещение ущерба, сотрудничество со следствием и помощь в раскрытии других преступлений являются обстоятельствами, смягчающими наказание. Суд вправе снизить срок тюремного заключения до 50% или заменить его исправительными работами.</p>
+                <p class="repentance">«Раскаявшийся преступник – наполовину прощённый»</p>
+            </div>
+            <div class="court-note">
+                <h3>Обжалование приговора</h3>
+                <p>Приговор может быть обжалован в течение 3 дней после вынесения у Архонта. Апелляция рассматривается в течение 24 часов. Решение Архонта окончательно.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div>© FAMILY228 · ГОСУДАРСТВЕННЫЙ РЕЕСТР</div>
+            <div style="font-size:0.8rem; margin-top:0.5rem;">Все кодексы утверждены Архонтом · Редакция 5.0 · Незнание законов не освобождает от ответственности</div>
+            <div class="signature"><i class="fas fa-scroll"></i> EX OFFICIO · PER POPULUM · PRO ARIS ET FOCIS <i class="fas fa-scroll"></i></div>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            const themeSwitcher = document.getElementById('theme-switcher');
+            themeSwitcher.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                document.body.classList.toggle('light-mode');
+                const icon = themeSwitcher.querySelector('i');
+                icon.classList.toggle('fa-moon');
+                icon.classList.toggle('fa-sun');
+            });
+
+            // Подсветка активного пункта меню
+            const links = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('section');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
