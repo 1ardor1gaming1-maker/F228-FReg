@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAMILY228 · ГОСУДАРСТВЕННЫЕ КОДЕКСЫ</title>
+    <title>FAMILY228 · ГОСУДАРСТВЕННЫЕ КОДЕКСЫ (ПОЛНОЕ СОБРАНИЕ)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -440,6 +440,16 @@
             font-weight: 600;
         }
 
+        .stats-badge {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -459,8 +469,8 @@
         <div class="logo">FAMILY228</div>
         <nav class="nav-links">
             <a href="#hierarchy">Иерархия</a>
-            <a href="#uk">УК</a>
-            <a href="#koap">КоАП</a>
+            <a href="#uk">УК <span class="stats-badge">31</span></a>
+            <a href="#koap">КоАП <span class="stats-badge">36</span></a>
             <a href="#military">Военный устав</a>
             <a href="#arch">Регламент</a>
             <a href="#court">Суд</a>
@@ -481,7 +491,7 @@
         </div>
 
         <h1>КОДЕКСЫ И ИЕРАРХИЯ</h1>
-        <div class="subhead">Официальное издание · Утверждено Архонтом · Версия 5.0</div>
+        <div class="subhead">Официальное издание · Утверждено Архонтом · Версия 6.0 (расширенная)</div>
 
         <!-- Иерархическое древо -->
         <section id="hierarchy">
@@ -565,11 +575,11 @@
             </div>
         </section>
 
-        <!-- Уголовный кодекс -->
+        <!-- Уголовный кодекс (31 статья) -->
         <section id="uk">
-            <h2>УГОЛОВНЫЙ КОДЕКС (УК)</h2>
+            <h2>УГОЛОВНЫЙ КОДЕКС (УК) <span class="stats-badge">31 статья</span></h2>
             <div class="codex-grid">
-                <!-- 1-20 УК -->
+                <!-- Статьи 1-20 (базовые) -->
                 <div class="codex-article">
                     <div class="article-number">Статья 1</div>
                     <div class="article-title">Государственная измена</div>
@@ -626,221 +636,361 @@
                 </div>
                 <div class="codex-article">
                     <div class="article-number">Статья 10</div>
-                    <div class="article-title">Мошенничество и эксплуатация багов</div>
-                    <div class="article-text">Использование ошибок игры для нелегального получения ресурсов, обман при сделках.</div>
-                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 20 дней, конфискацией, при систематическом нарушении – баном.</div>
+                    <div class="article-title">Грабеж</div>
+                    <div class="article-text">Открытое хищение чужого имущества, совершенное с применением насилия или угрозой его применения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой от 20 до 40 дней, конфискацией, компенсацией жертве в тройном размере.</div>
                 </div>
                 <div class="codex-article">
                     <div class="article-number">Статья 11</div>
+                    <div class="article-title">Разбой</div>
+                    <div class="article-text">Нападение с целью хищения имущества, совершенное с использованием оружия или предметов, используемых в качестве оружия.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> баном от 30 до 60 дней, полной конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 12</div>
+                    <div class="article-title">Мошенничество</div>
+                    <div class="article-text">Хищение чужого имущества путем обмана или злоупотребления доверием, неисполнение договорённостей.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 20 дней, штрафом в двойном размере ущерба.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 13</div>
+                    <div class="article-title">Вымогательство</div>
+                    <div class="article-text">Требование передачи чужого имущества под угрозой применения насилия, уничтожения имущества или распространения порочащих сведений.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой от 20 до 35 дней, конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 14</div>
                     <div class="article-title">Убийство вне PvP-зон</div>
                     <div class="article-text">Лишение жизни игрока без его согласия за пределами специальных арен.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой от 10 до 25 дней, конфискацией оружия, компенсацией жертве.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 12</div>
+                    <div class="article-number">Статья 15</div>
+                    <div class="article-title">Убийство при отягчающих обстоятельствах</div>
+                    <div class="article-text">Убийство должностного лица, двух и более лиц, с особой жестокостью, из корыстных побуждений.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> баном от 60 до 90 дней, полной конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 16</div>
                     <div class="article-title">Нападение на должностное лицо</div>
                     <div class="article-text">Причинение вреда представителю власти при исполнении обязанностей.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой на 30 дней, понижением ранга, конфискацией.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 13</div>
+                    <div class="article-number">Статья 17</div>
                     <div class="article-title">Создание смертельных ловушек</div>
                     <div class="article-text">Установка механизмов, способных убить игрока без его ведома.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 15 дней, сносом ловушек, компенсацией.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 14</div>
+                    <div class="article-number">Статья 18</div>
                     <div class="article-title">Незаконное проникновение на режимные объекты</div>
                     <div class="article-text">Вход на военные базы, секретные стройки, склады оружия без допуска.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, конфискацией пропусков.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 15</div>
+                    <div class="article-number">Статья 19</div>
                     <div class="article-title">Хранение и распространение запрещённых предметов</div>
                     <div class="article-text">Наличие предметов, полученных через баги/читы, хранение оружия в жилых зонах.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией, тюрьмой до 15 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 16</div>
+                    <div class="article-number">Статья 20</div>
                     <div class="article-title">Незаконная добыча в заповедных зонах</div>
                     <div class="article-text">Вырубка леса, добыча руды на охраняемых территориях без разрешения.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, восстановлением ландшафта, тюрьмой до 7 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 17</div>
+                    <div class="article-number">Статья 21</div>
                     <div class="article-title">Уклонение от воинской обязанности</div>
                     <div class="article-text">Неявка на сборы, отказ от мобилизации во время военного положения.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> понижением ранга, тюрьмой до 20 дней, конфискацией.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 18</div>
+                    <div class="article-number">Статья 22</div>
                     <div class="article-title">Невыполнение приказа в военное время</div>
                     <div class="article-text">Игнорирование прямых распоряжений командования во время угрозы.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 30 дней, разжалованием.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 19</div>
+                    <div class="article-number">Статья 23</div>
                     <div class="article-title">Дезертирство</div>
                     <div class="article-text">Самовольное оставление места службы, поля боя.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 40 дней, конфискацией, понижением до Гражданина.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 20</div>
+                    <div class="article-number">Статья 24</div>
                     <div class="article-title">Подделка документов</div>
                     <div class="article-text">Фальсификация табличек, книг, знаков принадлежности к рангу.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, конфискацией подделок.</div>
                 </div>
+                <!-- Новые статьи УК (25-31) -->
+                <div class="codex-article">
+                    <div class="article-number">Статья 25</div>
+                    <div class="article-title">Незаконный оборот наркотических веществ</div>
+                    <div class="article-text">Хранение, изготовление, распространение зелий, использование зелий с целью нарушения порядка или нанесения вреда другим игрокам.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией всех зелий, тюрьмой от 15 до 30 дней, при систематическом распространении – баном.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 26</div>
+                    <div class="article-title">Взятка и коррупция</div>
+                    <div class="article-text">Передача должностному лицу каких-либо ресурсов или услуг за совершение действий в пользу взяткодателя. Принятие взятки должностным лицом.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> для взяткодателя – конфискацией переданного, тюрьмой до 15 дней. Для должностного лица – понижением ранга, конфискацией всего имущества, тюрьмой до 30 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 27</div>
+                    <div class="article-title">Злоупотребление должностными полномочиями</div>
+                    <div class="article-text">Использование должностным лицом своих полномочий вопреки интересам государства, с целью получения выгоды.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> понижением ранга, конфискацией, тюрьмой до 25 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 28</div>
+                    <div class="article-title">Превышение должностных полномочий</div>
+                    <div class="article-text">Совершение должностным лицом действий, явно выходящих за пределы его полномочий.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> понижением ранга, тюрьмой до 20 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 29</div>
+                    <div class="article-title">Халатность должностного лица</div>
+                    <div class="article-text">Неисполнение или ненадлежащее исполнение должностным лицом своих обязанностей, повлекшее ущерб государству.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, понижением ранга, штрафом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 30</div>
+                    <div class="article-title">Провокация взятки</div>
+                    <div class="article-text">Попытка склонить должностное лицо к получению взятки с целью последующего шантажа или компрометации.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 20 дней, конфискацией.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 31</div>
+                    <div class="article-title">Незаконное обогащение</div>
+                    <div class="article-text">Значительное увеличение имущества должностного лица, не соответствующее его законным доходам, которое не может быть объяснено.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией необоснованно приобретенного имущества, понижением ранга, тюрьмой до 20 дней.</div>
+                </div>
             </div>
         </section>
 
-        <!-- Административный кодекс (нумерация с 21) -->
+        <!-- Административный кодекс (36 статей) -->
         <section id="koap">
-            <h2>АДМИНИСТРАТИВНЫЙ КОДЕКС (КоАП)</h2>
+            <h2>АДМИНИСТРАТИВНЫЙ КОДЕКС (КоАП) <span class="stats-badge">36 статей</span></h2>
             <div class="codex-grid">
-                <!-- Статья 21 -->
+                <!-- Статьи 32-67 -->
                 <div class="codex-article">
-                    <div class="article-number">Статья 21</div>
+                    <div class="article-number">Статья 32</div>
                     <div class="article-title">Нарушение правил поведения в чате</div>
                     <div class="article-text">Флуд, капс, оскорбления, разжигание розни, спам, провокационные сообщения.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, мутом от 1 часа до 3 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 22</div>
+                    <div class="article-number">Статья 33</div>
                     <div class="article-title">Неподчинение законным требованиям</div>
                     <div class="article-text">Отказ выполнять распоряжения Архонта, министров, строителей, командиров при исполнении.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> арестом до 5 дней, понижением ранга.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 23</div>
+                    <div class="article-number">Статья 34</div>
                     <div class="article-title">Нарушение правил торговли</div>
                     <div class="article-text">Обман при сделках, неисполнение договорённостей, мошенничество в экономической зоне.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом в двойном размере ущерба, запретом на торговлю до 10 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 24</div>
+                    <div class="article-number">Статья 35</div>
                     <div class="article-title">Несанкционированное строительство</div>
                     <div class="article-text">Возведение построек без согласования в зонах, где оно обязательно.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> предписанием о сносе, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 25</div>
+                    <div class="article-number">Статья 36</div>
                     <div class="article-title">Нарушение архитектурного регламента</div>
                     <div class="article-text">Использование запрещённых материалов, нарушение высотности, стиля.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, сносом за свой счёт.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 26</div>
+                    <div class="article-number">Статья 37</div>
                     <div class="article-title">Неявка на обязательные собрания</div>
                     <div class="article-text">Пропуск общих сборов, заседаний, выборов без уважительной причины.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, при повторении – штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 27</div>
+                    <div class="article-number">Статья 38</div>
                     <div class="article-title">Несоблюдение дресс-кода</div>
                     <div class="article-text">Использование скинов, оскорбляющих других игроков или не соответствующих должности.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, запретом на вход в официальные здания до смены.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 28</div>
+                    <div class="article-number">Статья 39</div>
                     <div class="article-title">Использование нецензурных никнеймов</div>
                     <div class="article-text">Никнеймы, содержащие мат, оскорбления, непристойные намёки.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> требованием сменить ник, баном до выполнения.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 29</div>
+                    <div class="article-number">Статья 40</div>
                     <div class="article-title">Реклама сторонних ресурсов</div>
                     <div class="article-text">Публикация ссылок на другие серверы, дискорды, сайты без разрешения.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом от 1 до 7 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 30</div>
+                    <div class="article-number">Статья 41</div>
                     <div class="article-title">Спам в личных сообщениях</div>
                     <div class="article-text">Массовая рассылка рекламы, бессмысленных сообщений, домогательства.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом на ЛС до 10 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 31</div>
+                    <div class="article-number">Статья 42</div>
                     <div class="article-title">Ложные заявления в суд</div>
                     <div class="article-text">Заведомо ложный донос, оговор, фальсификация доказательств.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 7 дней, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 32</div>
+                    <div class="article-number">Статья 43</div>
                     <div class="article-title">Вмешательство в работу госорганов</div>
                     <div class="article-text">Срыв заседаний, подкуп должностных лиц, давление на судей.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 15 дней, понижением ранга.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 33</div>
+                    <div class="article-number">Статья 44</div>
                     <div class="article-title">Несанкционированное использование админканалов</div>
                     <div class="article-text">Публикация в каналах для объявлений, гос. табличках без разрешения.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом на эти каналы до 5 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 34</div>
+                    <div class="article-number">Статья 45</div>
                     <div class="article-title">Нарушение правил PvP-арен</div>
                     <div class="article-text">Использование запрещённых зелий, выход за пределы, телепортация во время боя.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> дисквалификацией на 10 дней, конфискацией призов.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 35</div>
+                    <div class="article-number">Статья 46</div>
                     <div class="article-title">Несогласованные мероприятия</div>
                     <div class="article-text">Организация массовых строек, конкурсов, парадов без одобрения Палаты.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, роспуском мероприятия.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 36</div>
+                    <div class="article-number">Статья 47</div>
                     <div class="article-title">Неуважение к символам государства</div>
                     <div class="article-text">Осквернение флага, герба, гимна, публичное глумление над ними.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> тюрьмой до 10 дней, общественными работами.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 37</div>
+                    <div class="article-number">Статья 48</div>
                     <div class="article-title">Неправильное использование ранговых префиксов</div>
                     <div class="article-text">Присвоение чужого звания, использование неутверждённых обозначений.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 38</div>
+                    <div class="article-number">Статья 49</div>
                     <div class="article-title">Нарушение правил именования территорий</div>
                     <div class="article-text">Присвоение нецензурных, провокационных названий регионам.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> переименованием за счёт нарушителя, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 39</div>
+                    <div class="article-number">Статья 50</div>
                     <div class="article-title">Игнорирование предписаний строителей</div>
                     <div class="article-text">Невыполнение требований по исправлению архитектурных нарушений.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> принудительным сносом, штрафом, тюрьмой до 3 дней.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 40</div>
+                    <div class="article-number">Статья 51</div>
                     <div class="article-title">Несанкционированная торговля</div>
                     <div class="article-text">Размещение торговых лотков вне рыночной зоны.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> конфискацией товара, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 41</div>
+                    <div class="article-number">Статья 52</div>
                     <div class="article-title">Отказ от гражданского долга</div>
                     <div class="article-text">Игнорирование выборов, референдумов, голосований без уважительной причины.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, ограничением права голоса.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 42</div>
+                    <div class="article-number">Статья 53</div>
                     <div class="article-title">Нарушение правил общественных ферм</div>
                     <div class="article-text">Сбор урожая сверх лимита, порча растений, воровство с общих складов.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> запретом доступа на 7 дней, штрафом.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 43</div>
+                    <div class="article-number">Статья 54</div>
                     <div class="article-title">Порча общественного имущества (по неосторожности)</div>
                     <div class="article-text">Случайное повреждение, если не приняты меры к исправлению.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> возмещением ущерба, исправительными работами.</div>
                 </div>
                 <div class="codex-article">
-                    <div class="article-number">Статья 44</div>
+                    <div class="article-number">Статья 55</div>
                     <div class="article-title">Нарушение тишины в ночное время</div>
                     <div class="article-text">Громкие постройки, взрывы, шум вблизи жилых зон с 23:00 до 7:00.</div>
                     <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, штрафом.</div>
+                </div>
+                <!-- Новые статьи КоАП (56-67) -->
+                <div class="codex-article">
+                    <div class="article-number">Статья 56</div>
+                    <div class="article-title">Мелкое хулиганство</div>
+                    <div class="article-text">Незначительные нарушения порядка, не подпадающие под уголовные статьи: приставание к гражданам, нецензурная брань в общественных местах.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, штрафом, исправительными работами до 3 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 57</div>
+                    <div class="article-title">Распитие алкогольных зелий в общественных местах</div>
+                    <div class="article-text">Употребление зелий, дающих эффект опьянения, на спауне, в правительственных зданиях, на улицах.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, мутом до 1 дня.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 58</div>
+                    <div class="article-title">Появление в нетрезвом виде в общественных местах</div>
+                    <div class="article-text">Нахождение в состоянии сильного опьянения, нарушающее общественный порядок.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> арестом до 2 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 59</div>
+                    <div class="article-title">Мелкое воровство</div>
+                    <div class="article-text">Хищение ресурсов на сумму до 50 единиц ценности (алмазов, железа).</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом в тройном размере, исправительными работами.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 60</div>
+                    <div class="article-title">Нарушение правил парковки (лодок, вагонеток)</div>
+                    <div class="article-text">Оставление транспорта в неположенных местах, блокировка проходов.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, конфискацией транспорта.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 61</div>
+                    <div class="article-title">Несанкционированная реклама в ЛС</div>
+                    <div class="article-text">Рассылка рекламных сообщений в личные сообщения без согласия получателя.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом на ЛС до 5 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 62</div>
+                    <div class="article-title">Неисполнение предписаний суда</div>
+                    <div class="article-text">Игнорирование решений суда, невыплата штрафов, невыполнение предписанных работ.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> удвоением наказания, принудительным арестом.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 63</div>
+                    <div class="article-title">Неуважение к суду</div>
+                    <div class="article-text">Оскорбление судьи, нецензурная брань в зале суда, игнорирование правил поведения.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, арестом до 5 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 64</div>
+                    <div class="article-title">Самовольное оставление места работы (для госслужащих)</div>
+                    <div class="article-text">Уход с поста без передачи дел, без уважительной причины.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> выговором, понижением ранга.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 65</div>
+                    <div class="article-title">Несвоевременная сдача отчетности (для должностных лиц)</div>
+                    <div class="article-text">Просрочка предоставления отчетов о деятельности, о расходовании ресурсов.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> штрафом, выговором.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 66</div>
+                    <div class="article-title">Публичное обсуждение закрытых вопросов</div>
+                    <div class="article-text">Разглашение информации, не подлежащей публичному обсуждению до официального объявления.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> мутом до 5 дней.</div>
+                </div>
+                <div class="codex-article">
+                    <div class="article-number">Статья 67</div>
+                    <div class="article-title">Создание конфликтных ситуаций в чате</div>
+                    <div class="article-text">Провокации, троллинг, разжигание ссор.</div>
+                    <div class="punishment"><strong>КАРАЕТСЯ:</strong> предупреждением, мутом до 3 дней.</div>
                 </div>
             </div>
         </section>
@@ -948,7 +1098,7 @@
 
         <footer class="footer">
             <div>© FAMILY228 · ГОСУДАРСТВЕННЫЙ РЕЕСТР</div>
-            <div style="font-size:0.8rem; margin-top:0.5rem;">Все кодексы утверждены Архонтом · Редакция 5.0 · Незнание законов не освобождает от ответственности</div>
+            <div style="font-size:0.8rem; margin-top:0.5rem;">Все кодексы утверждены Архонтом · Редакция 6.0 · Незнание законов не освобождает от ответственности</div>
             <div class="signature"><i class="fas fa-scroll"></i> EX OFFICIO · PER POPULUM · PRO ARIS ET FOCIS <i class="fas fa-scroll"></i></div>
         </footer>
     </div>
